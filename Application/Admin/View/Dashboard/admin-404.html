@@ -1,0 +1,100 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ThinkBlog Admin user </title>
+    <meta name="description" content="这是一个 user 页面">
+    <meta name="keywords" content="user">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="apple-mobile-web-app-title" content="ThinkBlog"/>
+
+    <!--网站的图标-->
+    <link rel="shortcut icon" href="__PUBLIC__/favicon.ico">
+
+    <link rel="apple-touch-icon-precomposed" href="__PUBLIC__/Dashboard/assets/i/app-icon72x72@2x.png">
+
+    <link rel="stylesheet" href="__PUBLIC__/Dashboard/assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/Dashboard/assets/css/dashboard.css">
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，ThinkBlog 暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+    以获得更好的体验！</p>
+<![endif]-->
+
+<!--header start-->
+<include file="Public/header"/>
+<!--header end-->
+
+<div class="am-cf admin-main">
+
+    <!-- sidebar start -->
+    <include file="Public/sidebar"/>
+    <!-- sidebar end -->
+
+    <!-- content start -->
+    <div class="admin-content">
+
+        <div class="am-cf am-padding">
+            <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">404</strong> /
+                <small>That’s an error</small>
+            </div>
+        </div>
+
+        <div class="am-g">
+            <div class="am-u-sm-12">
+                <h2 class="am-text-center am-text-xxxl am-margin-top-lg">404. Not Found</h2>
+                <p class="am-text-center">没有找到你要的页面</p>
+        <pre class="page-404">
+          .----.
+       _.'__    `.
+   .--($)($$)---/#\
+ .' @          /###\
+ :         ,   #####
+  `-..__.-' _.-\###/
+        `;_:    `"'
+      .'"""""`.
+     /,  ya ,\\
+    //  404!  \\
+    `-._______.-'
+    ___`. | .'___
+   (______|______)
+        </pre>
+            </div>
+        </div>
+    </div>
+    <!-- content end -->
+
+</div>
+
+<!--footer start-->
+<include file="Public/footer"/>
+<!--footer end-->
+
+<!--[if lt IE 9]>
+<script src="__PUBLIC__/Assets/Global/Plugins/jquery1.11.1.min.js"></script>
+<script src="__PUBLIC__/Dashboard/assets/js/modernizr.js"></script>
+<script src="__PUBLIC__/Dashboard/assets/js/polyfill/rem.min.js"></script>
+<script src="__PUBLIC__/Dashboard/assets/js/polyfill/respond.min.js"></script>
+<script src="__PUBLIC__/Dashboard/assets/js/amazeui.legacy.min.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="__PUBLIC__/Assets/Global/Plugins/jquery.min.js"></script>
+<script src="__PUBLIC__/Dashboard/assets/js/amazeui.min.js"></script>
+<!--<![endif]-->
+<script src="__PUBLIC__/Dashboard/assets/js/app.js"></script>
+<script type="text/javascript">
+    $('#editor').on('click', function () {
+        console.log('editor clicked');
+    });
+    $('#markdown').on('click', function () {
+        console.log('markdown clicked');
+    })
+</script>
+
+</body>
+</html>

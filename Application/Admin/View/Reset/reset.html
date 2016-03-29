@@ -1,0 +1,79 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>找回密码-ThinkBlog-做最优雅的轻博客</title>
+
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/LoginCss/my_style.css"/>
+
+    <!--公共JS库-->
+    <script src="__PUBLIC__/Assets/Global/Plugins/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="__PUBLIC__/Assets/Global/Plugins/jquery.lib.min.js"></script>
+
+    <!--私有JS-->
+    <script type="text/javascript" src="__PUBLIC__/Js/core.min.js"></script>
+    <script src="__PUBLIC__/Js/checkname.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body id="login_bg">
+<div class="login_wrapper">
+    <div class="login_header">
+        <a href="#"><img src="__PUBLIC__/Img/LoginImage/IT.png" width="285" height="62" alt="ThinkBlog"/></a>
+        <div id="cloud_s"><img src="__PUBLIC__/Img/LoginImage/cloud_s.png" width="81" height="52" alt="ThinkBlog"/>
+        </div>
+        <div id="cloud_m"><img src="__PUBLIC__/Img/LoginImage/cloud_m.png" width="136" height="95" alt="ThinkBlog"/>
+        </div>
+    </div>
+
+    <input type="hidden" id="resubmitToken" value=""/>
+    <div class="login_box">
+        <form id="loginForm" name="resetForm" action="resetDone" method="post">
+            <input type="text" name="email" id="email" tabindex="1" value="" onblur="checkname();"
+                   placeholder="请输入注册时使用的邮箱地址"/>
+            <span style="display: block;" id="checkbox"></span>
+            <input type="text" name="password" id="password" tabindex="2" value="" placeholder="请输入新密码"/>
+            <input type="submit" id="submitLogin" value="重置密码"/>
+        </form>
+
+        <div class="login_right">
+            <div>没有ThinkBlog帐号？</div>
+            <a href="<?php echo U('Admin/Register/register'); ?>" class="registor_now">立即注册</a>
+            <div class="login_others">使用以下帐号直接登录:</div>
+            <a href="#" target="_blank" class="icon_wb" title="使用新浪微博帐号登录"></a>
+            <a href="#" class="icon_qq" target="_blank" title="使用腾讯QQ帐号登录"></a>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#pswForm input[type="text"]').focus(function () {
+            //$(this).siblings('.error').hide();
+        });
+        //验证表单
+        $("#pswForm").validate({
+            rules: {
+                email: {
+                    required: true,
+                    email: true
+                }
+            },
+            messages: {
+                email: {
+                    required: "请输入注册时使用的邮箱地址",
+                    email: "请输入有效的邮箱地址，如：example@54yongf.com"
+                }
+            },
+            submitHandler: function (form) {
+                form.submit();
+                //$(form).find(":submit").attr("disabled", true);
+            }
+        });
+    });
+</script>
+
+</body>
+
+</html>

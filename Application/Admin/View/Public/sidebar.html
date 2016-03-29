@@ -1,0 +1,44 @@
+<div class="admin-sidebar">
+    <ul class="am-list admin-sidebar-list">
+        <li><a href="dashboard.html"><span class="am-icon-home"></span> 后台首页
+        </a></li>
+        <li class="admin-parent">
+            <a class="am-cf" data-am-collapse="{target: '#collapse-nav'}"><span class="am-icon-file"></span> 页面模块
+                <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+            <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
+                <li><a href="admin-user.html" class="am-cf"><span
+                        class="am-icon-check"></span> 个人资料<span
+                        class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+                <li><a href="admin-help.html"><span
+                        class="am-icon-puzzle-piece"></span> 帮助页</a></li>
+                <li><a href="admin-gallery.html"><span class="am-icon-th"></span>
+                    相册页面<span
+                            class="am-badge am-badge-secondary am-margin-right am-fr">24</span></a></li>
+                <li><a href="admin-log.html"><span class="am-icon-calendar"></span>
+                    系统日志</a></li>
+                <li><a href="admin-404.html"><span class="am-icon-bug"></span>
+                    404</a></li>
+            </ul>
+        </li>
+        <li><a href="admin-table.html"><span class="am-icon-table"></span> 文章管理 </a></li>
+        <li><a href="#"
+               data-am-modal="{target: '#writing-method', closeViaDimmer: 1, width: 400, height: 225}"><span
+                class="am-icon-pencil-square-o"></span> 开始写作 </a></li>
+        <li><a href="admin-setting.html"><span class="am-icon-gear"></span> 个性化设置 </a> </li>
+        <li><a href="<?php echo U('Admin/Login/login'); ?>"><span class="am-icon-sign-out"></span> 注销</a></li>
+    </ul>
+
+    <div class="am-panel am-panel-default admin-sidebar-panel">
+        <div class="am-panel-bd">
+            <p><span class="am-icon-bookmark"></span> 公告</p>
+            <p>莫愁前路无知己，天下谁人不识君。—— 高适</p>
+        </div>
+    </div>
+
+    <div class="am-panel am-panel-default admin-sidebar-panel">
+        <div class="am-panel-bd">
+            <p><span class="am-icon-tag"></span> 公告</p>
+            <p>欢迎使用ThinkBlog!</p>
+        </div>
+    </div>
+</div>
