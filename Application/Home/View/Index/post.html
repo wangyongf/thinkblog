@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+    <title>ThinkBlog-简洁、优雅的轻博客</title>
+    <meta name="description" content="ThinkBlog是一套简洁、优雅的轻博客构建系统"/>
+
+    <meta name="HandheldFriendly" content="True"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link rel="shortcut icon" href="__PUBLIC__/favicon.ico">
+
+    <link rel="stylesheet" href="__PUBLIC__/Assets/Global/Plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/Assets/Global/Plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/Assets/Global/Plugins/highlight/styles/vs.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/screen.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/social.css">
+
+    <link rel="canonical" href="http://www.54yongf.com/"/>
+    <meta name="referrer" content="origin"/>
+    <link rel="alternate" type="application/rss+xml"
+          title="ThinkBlog是一套简洁、优雅的轻博客构建系统"
+          href="http://blog.54yongf.com/rss/"/>
+</head>
+
+<body class="post-template tag-ThinkBlog tag-xin-ban-ben-fa-bu">
+
+<!-- start header -->
+<include file="Public/header"/>
+<!-- end header -->
+
+<!-- start navigation -->
+<include file="Public/top_navigation"/>
+<!-- end navigation -->
+
+
+<!-- start site's main content area -->
+<section class="content-wrap">
+    <div class="container">
+        <div class="row">
+
+            <main class="col-md-8 main-content">
+
+
+                <article id="61" class="post tag-ThinkBlog tag-xin-ban-ben-fa-bu">
+
+                    <header class="post-head">
+                        <h1 class="post-title">{$title}</h1>
+                        <section class="post-meta">
+                            <time class="post-date" datetime="{$pub_time}" title="{$pub_time}"> &bull;
+                                发表于{$pub_time}
+                            </time>
+                            <span class="author">作者：<a href="javascript:">Scott Wang</a></span>
+                            <time class="edit-date" datetime="{$edit_time}" title="{$edit_time}">
+                                更新于{$edit_time} &bull;
+                            </time>
+                        </section>
+                    </header>
+
+                    <div class="featured-media">
+                        <a href="javascript:void(0)"><img
+                                src="__PUBLIC__/Img/article6.jpg"
+                                alt="{$title}"></a>
+                    </div>
+
+                    <section class="post-content">
+                        {$content}
+                    </section>
+
+                    <footer class="post-footer clearfix">
+                        <div class="pull-left tag-list">
+                            <i class="fa fa-folder-open-o"></i>
+                            <a href="/tag/ThinkBlog/">ThinkBlog</a>, <a href="/tag/xin-ban-ben-fa-bu/">新版本发布</a>
+                        </div>
+
+                        <div class="pull-right share">
+                            <div class="bdsharebuttonbox share-icons">
+                                <a href="#" class="bds_more" data-cmd="more"></a>
+                                <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+                                <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                                <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+                                <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+                                <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                            </div>
+                        </div>
+                    </footer>
+
+                </article>
+
+                <div class="about-author clearfix">
+                    <a href="javascript:"><img
+                            src="__PUBLIC__/Img/Scott_Wang.png" alt="Scott Wang"
+                            class="avatar pull-left"></a>
+
+                    <div class="details">
+                        <div class="author">
+                            关于作者 <a href="/author/wangsai/">Scott Wang</a>
+                        </div>
+                        <div class="meta-info">
+                            <span class="loaction"><i class="fa fa-home"></i>上海</span>
+                            <span class="website"><i class="fa fa-globe"></i><a href="http://blog.54yongf.com/"
+                                                                                targer="_blank">个人网站/博客</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="prev-next-wrap clearfix">
+
+                    <a class="btn btn-default" href="/post/ThinkBlog-5-2-zheng-shi-fa-bu/"><i
+                            class="fa fa-angle-left fa-fw"></i> ThinkBlog 5.2 正式发布</a>
+                    &nbsp;
+
+                </div>
+
+
+            </main>
+
+            <aside class="col-md-4 sidebar">
+
+                <!-- start widget -->
+                <include file="Widget/search"/>
+                <!--end widget-->
+
+                <!--start widget-->
+                <include file="Widget/member"/>
+                <!--end widget-->
+
+                <!--start widget-->
+                <include file="Widget/social"/>
+                <!--end widget-->
+
+                <!-- start tag cloud widget -->
+                <include file="Widget/community"/>
+                <!-- end tag cloud widget -->
+
+                <!-- start widget -->
+                <include file="Widget/download"/>
+                <!-- end widget -->
+
+                <!--start widget-->
+                <include file="Widget/category"/>
+                <!--end widget-->
+
+                <!-- start tag cloud widget -->
+                <include file="Widget/tag_cloud"/>
+                <!-- end tag cloud widget -->
+
+                <!-- start widget -->
+                <include file="Widget/page_view"/>
+                <!-- end widget -->
+
+                <!-- start widget -->
+                <include file="Widget/friend_link"/>
+                <!-- end widget -->
+
+            </aside>
+
+        </div>
+    </div>
+</section>
+
+<include file="Public/copyright"/>
+
+<a href="#" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+<script src="__PUBLIC__/Assets/Global/Plugins/jquery.min.js"></script>
+<script src="__PUBLIC__/Assets/Global/Plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="__PUBLIC__/Assets/Global/Plugins/jquery.fitvids.js"></script>
+<script src="__PUBLIC__/Assets/Global/Plugins/highlight.js/highlight.pack.js"></script>
+<script src="__PUBLIC__/Js/main.js"></script>
+
+
+</body>
+</html>

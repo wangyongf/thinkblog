@@ -1,0 +1,71 @@
+<!-- 开始加载javascript（在底部加载，可以减少用户等待时间）-->
+<!-- 开始加载核心js库-->
+<!--[if lt IE 9]>
+<script src="__PUBLIC__/Assets/Global/Plugins/respond.min.js"></script>
+<script src="__PUBLIC__/Assets/Global/Plugins/excanvas.min.js"></script>
+<![endif]-->
+<script src="__PUBLIC__/Assets/Global/Plugins/jquery.min.js" type="text/javascript"></script>
+<script src="__PUBLIC__/Assets/Global/Plugins/jquery-migrate.min.js" type="text/javascript"></script>
+<script src="__PUBLIC__/Assets/Global/Plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<!-- 核心库加载完毕-->
+<!-- 开始加载本页面js-->
+<script src="__PUBLIC__/Assets/Global/Plugins/jquery.easing.js" type="text/javascript"></script>
+<script src="__PUBLIC__/Assets/Global/Plugins/jquery.parallax.js" type="text/javascript"></script>
+<script src="__PUBLIC__/Assets/Global/Plugins/smooth-scroll/smooth-scroll.js" type="text/javascript"></script>
+<script src="__PUBLIC__/Assets/Global/Plugins/owl.carousel/owl.carousel.min.js" type="text/javascript"></script>
+<!-- 开始加载Cubeportfolio -->
+<script src="__PUBLIC__/Assets/Global/Plugins/cubeportfolio/cubeportfolio/js/jquery.cubeportfolio.min.js"
+        type="text/javascript"></script>
+<script src="__PUBLIC__/Assets/Frontend/Portal/Scripts/portfolio.js" type="text/javascript"></script>
+<!-- END Cubeportfolio -->
+<!-- BEGIN RevolutionSlider -->
+<script src="__PUBLIC__/Assets/Global/Plugins/slider-revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js"
+        type="text/javascript"></script>
+<script src="__PUBLIC__/Assets/Global/Plugins/slider-revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js"
+        type="text/javascript"></script>
+<script src="__PUBLIC__/Assets/Frontend/Portal/Scripts/revo-ini.js" type="text/javascript"></script>
+<!-- END RevolutionSlider -->
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="__PUBLIC__/Assets/Frontend/Portal/Scripts/layout.js" type="text/javascript"></script>
+<!-- END PAGE LEVEL SCRIPTS -->
+<script>
+    jQuery(document).ready(function () {
+        Layout.init();
+        RevosliderInit.initRevoSlider();
+    });
+</script>
+
+<script>window.jQuery || document.write('<script src="__PUBLIC__/Assets/Global/Plugins/jquery.min.js"><\/script>')</script>
+<script type="text/javascript">
+    $(function(){
+        $('a').on('click', function(){ return false; });
+
+        // set item banner
+        $('.ts-item').first().show();
+        $('.ts-item').each(function () {
+            var $this = $(this),
+                    _imgSrc  = $this.find('.ts-banner img').attr('src');
+
+            if(_imgSrc)
+                $this.css('background-image', 'url(' + _imgSrc + ')');
+        });
+
+        $('.ts-control li').on('click', function(){
+            var  $this = $(this),
+                    _index = $this.index();
+
+            $("li.is-active").removeClass("is-active");
+            $(this).addClass("is-active");
+
+            $('.ts-item.is-active').removeClass('is-active').fadeOut();
+            $('.ts-item').eq(_index).addClass('is-active').fadeIn();
+
+            return false;
+        });
+
+        var ww = $(window).width();
+    });
+</script>
+
+<!-- 所有JS加载完毕-->

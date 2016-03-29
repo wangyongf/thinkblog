@@ -1,0 +1,29 @@
+<!--
+<br/><br/>Hello, {$name}!<br/>
+{$Think.server.script_name}<br/>
+{$Think.MODULE_NAME}<br/>
+{$Think.config.url_model}<br/>
+{$Think.lang.page_error}<br/>
+{$user.nickname|default="这家伙很懒，什么都没留下"}<br/>-->
+
+<include file="Public/base" title="ThinkPHP框架" keywords="开源WEB开发框架"/>
+
+<for start="1" end="10" step="2">
+    <br/>{$i}
+</for>
+
+<present name="id">
+    <br/><br/>id已经赋值
+    <else/>
+    <br/><br/>id尚未赋值
+</present>
+
+<!--这是注释 -->
+{/*<switch name="Think.param.type">
+    <case value="gif|png|jpg">图像格式</case>
+    <default/>
+    其他格式
+</switch> */}
+
+<a href="portal.html" target="_blank">点击进入介绍页面</a>
+<br/>{$Think.THINK_VERSION}

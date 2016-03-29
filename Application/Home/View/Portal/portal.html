@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]>
+<html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8"/>
+    <title>ThinkBlog--新一代轻博客系统</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <!--定义描述-->
+    <meta content="ThinkBlog, blog, php, thinkphp, 轻型博客, 博客, 新一代轻博客系统" name="description"/>
+    <!--定义页面作者-->
+    <meta content="Scott Wang" name="author"/>
+
+    <include file="Portal/loadingCSS"/>
+
+    <!--网站缩略图-->
+    <link rel="shortcut icon" href="__PUBLIC__/favicon.ico"/>
+</head>
+<!-- END HEAD -->
+
+<!-- BEGIN BODY -->
+<!-- DOC: Apply "page-on-scroll" class to the body element to set fixed header layout -->
+<body class="page-header-fixed">
+
+<!-- BEGIN MAIN LAYOUT -->
+<!-- Header BEGIN -->
+<include file="Portal/header"/>
+<include file="Portal/carousel"/>
+
+<!-- 主布局开始-->
+<div class="page-content">
+    <!-- 订阅部分开始-->
+    <div class="subscribe">
+        <div class="container">
+            <div class="subscribe-wrap">
+                <div class="subscribe-body subscribe-desc md-margin-bottom-30">
+                    <h1>订阅我们！</h1>
+                    <p>即刻输入您的邮箱，了解最新资讯</p>
+                </div>
+                <div class="subscribe-body">
+                    <form class="form-wrap input-field">
+                        <div class="form-wrap-group border-left-transparent">
+                            <input type="email" class="form-control" id="email" placeholder="你的邮箱">
+                        </div>
+                        <div class="form-wrap-group">
+                            <button type="submit" class="btn-danger btn-md btn-block">马上订阅！</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 订阅部分结束-->
+
+    <!-- 关于部分开始-->
+    <section id="about">
+        <!-- 服务部分开始-->
+        <div class="container service-bg">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="services sm-margin-bottom-100">
+                        <div class="services-wrap">
+                            <div class="service-body">
+                                <img src="__PUBLIC__/Assets/Frontend/Portal/Img/Widgets/icon1.png" alt="Service">
+                            </div>
+                        </div>
+                        <h2>省时省力省心</h2>
+                        <p>ThinkBlog拥有高效的文章发布系统<br> 发布部署一键搞定</p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="services sm-margin-bottom-100">
+                        <div class="services-wrap">
+                            <div class="service-body">
+                                <img src="__PUBLIC__/Assets/Frontend/Portal/Img/Widgets/icon2.png" alt="Service">
+                            </div>
+                        </div>
+                        <h2>响应式设计，精彩视界</h2>
+                        <p>采用HTML5、CSS3技术<br> 移动端、桌面端同样出色</p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="services">
+                        <div class="services-wrap">
+                            <div class="service-body">
+                                <img src="__PUBLIC__/Assets/Frontend/Portal/Img/Widgets/icon3.png" alt="Service">
+                            </div>
+                        </div>
+                        <h2>Markdown Support</h2>
+                        <p>支持Markdown写作<br> 无与伦比的写作体验</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 服务部分结束-->
+    </section>
+    <!-- 关于部分结束-->
+
+    <!-- 特性部分开始-->
+    <section id="features">
+        <!-- Features BEGIN -->
+        <div class="features-bg">
+            <div class="container">
+                <div class="heading">
+                    <h2><strong>ThinkBlog</strong> 主要特性</h2>
+                    <p>免费，开源，可以自由定制</p>
+                </div><!-- //end heading -->
+
+                <!-- Features -->
+                <div class="row margin-bottom-70">
+                    <div class="col-md-6 md-margin-bottom-70">
+                        <div class="features">
+                            <img src="__PUBLIC__/Assets/Frontend/Portal/Img/Widgets/screen1.png" alt="Features">
+                            <div class="features-in">
+                                <h3><a href="#">友好SEO支持</a></h3>
+                                <p>让你的文章不再寂寞，ThinkBlog在设计过程中充分考虑了SEO优化，搜索引擎收录，
+                                    让世界看见不一样的你！</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="features">
+                            <img src="__PUBLIC__/Assets/Frontend/Portal/Img/Widgets/screen2.png" alt="Features">
+                            <div class="features-in">
+                                <h3><a href="#">完美设计</a></h3>
+                                <p>ThinkBlog 2.0，彻底重构，重新出发。简洁，优雅，让人眼前一亮</p>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- //end row -->
+                <div class="row margin-bottom-80">
+                    <div class="col-md-6 md-margin-bottom-70">
+                        <div class="features">
+                            <img src="__PUBLIC__/Assets/Frontend/Portal/Img/Widgets/screen3.png" alt="Features">
+                            <div class="features-in">
+                                <h3><a href="#">Powered by Bootstrap</a></h3>
+                                <p>使用最受欢迎的Bootstrap开发框架，天生不凡，简洁优雅。响应式设计，移动端优先，
+                                    为所有应用场景而设计。注定与众不同</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="features">
+                            <img src="__PUBLIC__/Assets/Frontend/Portal/Img/Widgets/screen4.png" alt="Features">
+                            <div class="features-in">
+                                <h3><a href="#">Markdown Support</a></h3>
+                                <p>Markdown 是一种轻量级的「标记语言」,它的优点很多,目前也被越来越多的写作爱好者,撰稿者广泛使用。
+                                    ThinkBlog 2.0 在设计时充分考虑了Markdown，支持多种写作方式，既可以在线写作，也支持导入markdown文件。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- //end row -->
+                <!-- End Features -->
+
+                <center><a href="#" class="btn-brd-danger">马上使用！免费，开源，自由可定制</a></center>
+            </div>
+        </div>
+        <!-- Features END -->
+    </section>
+    <!-- END FEATURES SECTION -->
+
+    <!-- 我们的设计团队 -->
+    <section id="team">
+        <!-- Team BEGIN -->
+        <div class="team-bg parallax">
+            <div class="container">
+                <div class="heading-light">
+                    <h2>强大的 <strong>开发团队</strong></h2>
+                </div><!-- //end heading -->
+
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="team-members">
+                                    <div class="team-avatar">
+                                        <img class="img-responsive"
+                                             src="__PUBLIC__/Assets/Frontend/Portal/Img/Member/member1.png" alt="李锦川">
+                                    </div>
+                                    <div class="team-desc">
+                                        <div class="team-details">
+                                            <h4>李锦川</h4>
+                                            <span>CEO</span>
+                                        </div>
+                                        <ul class="team-socials">
+                                            <li><a href="#"><i class="fa fa-weibo"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-wechat"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="team-members">
+                                    <div class="team-avatar">
+                                        <img class="img-responsive"
+                                             src="__PUBLIC__/Assets/Frontend/Portal/Img/Member/member2.png" alt="李锦川">
+                                    </div>
+                                    <div class="team-desc">
+                                        <div class="team-details">
+                                            <h4>李锦川</h4>
+                                            <span>CEO</span>
+                                        </div>
+                                        <ul class="team-socials">
+                                            <li><a href="#"><i class="fa fa-weibo"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-wechat"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="team-members">
+                                    <div class="team-avatar">
+                                        <img class="img-responsive"
+                                             src="__PUBLIC__/Assets/Frontend/Portal/Img/Member/member3.png" alt="沈鸿文">
+                                    </div>
+                                    <div class="team-desc">
+                                        <div class="team-details">
+                                            <h4>沈鸿文</h4>
+                                            <span>CEO</span>
+                                        </div>
+                                        <ul class="team-socials">
+                                            <li><a href="#"><i class="fa fa-weibo"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-wechat"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- //end row -->
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="team-members">
+                                    <div class="team-avatar">
+                                        <img class="img-responsive"
+                                             src="__PUBLIC__/Assets/Frontend/Portal/Img/Member/member4.png" alt="王诗饶">
+                                    </div>
+                                    <div class="team-desc">
+                                        <div class="team-details">
+                                            <h4>王诗饶</h4>
+                                            <span>CEO</span>
+                                        </div>
+                                        <ul class="team-socials">
+                                            <li><a href="#"><i class="fa fa-weibo"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-wechat"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="team-members">
+                                    <div class="team-avatar">
+                                        <img class="img-responsive"
+                                             src="__PUBLIC__/Assets/Frontend/Portal/Img/Member/member5.png" alt="张斌杰">
+                                    </div>
+                                    <div class="team-desc">
+                                        <div class="team-details">
+                                            <h4>张斌杰</h4>
+                                            <span>CEO</span>
+                                        </div>
+                                        <ul class="team-socials">
+                                            <li><a href="#"><i class="fa fa-weibo"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-wechat"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="team-members">
+                                    <div class="team-avatar">
+                                        <img class="img-responsive"
+                                             src="__PUBLIC__/Assets/Frontend/Portal/Img/Member/member6.png" alt="王用">
+                                    </div>
+                                    <div class="team-desc">
+                                        <div class="team-details">
+                                            <h4>王用</h4>
+                                            <span>CEO</span>
+                                        </div>
+                                        <ul class="team-socials">
+                                            <li><a href="#"><i class="fa fa-weibo"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-wechat"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- //end row -->
+                    </div>
+                    <div class="col-md-4">
+                        <div class="team-about">
+                            <h3>卓越的用户体验</h3>
+                            <p>快速写作，一键部署。更加简洁，结构更为合理的后台管理系统，让上手更为容易，操作更为简单。
+                                精心选择多个颜色保护你的眼睛之余，还可保持愉快心情。</p>
+                            <div class="margin-bottom-40"></div>
+                            <h3>功能模块化</h3>
+                            <p>目前已提供文章、图片、下载等内容模型，在此基础上可非常方便的扩展出信息、房产、交友、点评等功能。
+                                已有的模块有：全站搜索、评论、专题、投票、友情链接、公告、附件管理、广告、表单向导等模块。</p>
+                            <div class="margin-bottom-40"></div>
+                            <h3>Markdown Support</h3>
+                            <p>原生支持Markdown写作，更有免打扰模式，让你专注写作，文思泉涌。
+                                在Github Flavoured Markdown的语法基础上，加入了更多功能，大量快捷键，不是一般地快</p>
+                        </div>
+                    </div>
+                </div><!-- //end row -->
+            </div>
+        </div>
+        <!-- Team END -->
+    </section>
+    <!-- 团队介绍部分结束-->
+
+    <!-- BEGIN CONTACT SECTION -->
+    <section id="contact">
+        <!-- Footer Coypright -->
+        <div class="footer-copyright">
+            <div class="container">
+                <h3>ThinkBlog</h3>
+                <ul class="copyright-socials">
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-weibo"></i></a></li>
+                    <li><a href="#"><i class="fa fa-wechat"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+                <P>ThinkBlog团队荣耀发布</P>
+            </div>
+        </div>
+        <!-- 版权部分结束 -->
+    </section>
+    <!-- END CONTACT SECTION -->
+</div>
+<!-- 主页面布局结束-->
+<a href="#intro" class="go2top"><i class="fa fa-arrow-up"></i></a>
+
+<include file="Portal/loadingJS"/>
+
+</body>
+<!-- 页面加载完毕-->
+</html>
