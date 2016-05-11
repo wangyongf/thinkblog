@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Markdown编辑器</title>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+
+        .csdn-toolbar {
+            position: absolute !important;
+            top: 0;
+            left: 0;
+            z-index: 1005;
+            width: 100% !important;
+            padding: 0 35px !important;
+            transition: all .5s;
+            box-sizing: border-box;
+        }
+
+        .csdn-toolbar .container {
+            width: 100% !important;
+        }
+
+        .ie8 {
+            width: 500px;
+            padding: 50px 0;
+            border: 1px solid #ddd;
+            background: #eee;
+            text-align: center;
+            font-size: 24px;
+            margin: 200px 0 0 -250px;
+            position: absolute;
+            left: 50%;
+            z-index: -1;
+        }
+
+        .ie8 a:link {
+            text-decoration: underline;
+            color: #ff33ffff;
+        }
+    </style>
+</head>
+
+<body>
+<div class="ie8">
+    本编辑器暂不支持ie浏览器 <br><br>
+    <a href="<?php echo U('Admin/Dashboard/editor'); ?>">使用普通编辑器</a>
+</div>
+</body>
+
+
+</html>
+
+

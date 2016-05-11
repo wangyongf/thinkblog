@@ -19,4 +19,28 @@ class DashboardController extends Controller
     {
         $this->display();
     }
+
+    /**
+     * markdown编辑界面
+     */
+    public function mdeditorAction()
+    {
+        $this->display();
+    }
+
+    /**
+     * 传统编辑器
+     */
+    public function editorAction()
+    {
+        $this->display();
+    }
+
+    /**
+     * 不支持ie
+     */
+    public function tipAction()
+    {
+        $this->display();
+    }
 }
