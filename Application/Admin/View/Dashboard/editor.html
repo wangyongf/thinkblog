@@ -3,8 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <title>普通编辑器</title>
+
+    <link href="//cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/summernote/0.8.1/summernote.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="__PUBLIC__/markdown/css/style.css">
+
+    <style type="text/css">
+        #main_content_wrap {
+            background-image: url("__PUBLIC__/Img/earth.jpg");
+        }
+    </style>
 </head>
 <body>
-<div>普通编辑器</div>
+
+<!-- MAIN CONTENT -->
+<div id="main_content_wrap" class="outer">
+    <section id="main_content" class="inner">
+
+        <!-- EDIT-TEXTAREA -->
+
+        <div class="well">
+            <!--<h5>开始写作</h5>-->
+            <form>
+                <div>文章标题(必需)</div>
+                <div class="form-group">
+                    <input class="form-control" name="title" type="text" placeholder="来个炫酷的标题吧 :-)"/>
+                </div>
+
+                <div>文章分类(必需)</div>
+                <div class="form-group">
+                    <input class="form-control" name="category" type="text" placeholder="给文章分个类吧"/>
+                </div>
+
+                <div>文章标签(必需)</div>
+                <div class="form-group">
+                    <input class="form-control" name="tag" type="text" placeholder="文章标签"/>
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <label class="checkbox-inline">
+                        <input type="radio" name="optionsRadiosinline" id="optionsRadios3"
+                               value="option1" checked> 原创
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="radio" name="optionsRadiosinline" id="optionsRadios4"
+                               value="option2"> 转载
+                    </label>
+                </div>
+
+
+                <div>简要描述(必需)</div>
+                <textarea title="abstract" class="form-control" rows="3"
+                          placeholder="一段文字，简要介绍文章内容，不会出现在文章正文" style="margin-bottom: 20px;"></textarea>
+
+                <!--SUMMERNOTE START-->
+                <div>文章内容(必需)</div>
+                <div id="summernote"></div>
+                <!--SUMMERNOTE END-->
+
+                <hr/>
+                <button type="submit" class="btn btn-danger btn-lg btn-block">
+                    点击录入文章
+                </button>
+            </form>
+        </div>
+
+    </section>
+</div>
+
+<script src="//cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="//cdn.bootcss.com/summernote/0.8.1/summernote.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#summernote').summernote({
+            height: 360,                 // set editor height
+            minHeight: null,             // set minimum height of editor
+            maxHeight: null,             // set maximum height of editor
+            focus: true
+        });
+
+        //设置占位符
+        var markupStr = '点击右上角可以全屏编辑哦';
+        $('#summernote').summernote('code', markupStr);
+    });
+</script>
+
 </body>
 </html>
