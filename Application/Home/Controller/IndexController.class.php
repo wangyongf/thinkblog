@@ -8,7 +8,6 @@ class IndexController extends Controller
 
     public function indexAction()
     {
-//        $this->_insertData();
         $data = $this->getArticleInfo();
         $this->assign($data);
         $this->display();
@@ -35,27 +34,6 @@ class IndexController extends Controller
         return $data;
     }
 
-    /**
-     * 插入数据
-     */
-    public function _insertData()
-    {
-        $time = time();
-
-        $Article = M('Article');
-
-        $data['TITLE'] = I('title');
-        $data['PUB_TIME'] = $time;
-        $data['CATEGORY_ID'] = I('category_id');
-        $data['TAGS'] = I('tag');
-        $data['SUMMARY'] = I('summary');
-        $data['CONTENT'] = I('content');
-        $data['EDIT_TIME'] = $time;
-//        dump($data);
-
-        $Article->data($data)->add();
-    }
-
     public function insertAction()
     {
 //        static $index = 1;
@@ -63,7 +41,7 @@ class IndexController extends Controller
 //            return;
 
         //插入数据
-        $this->display('Insert/insert');
+        $this->display('Insert:insert');
     }
 
     /**

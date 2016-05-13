@@ -23,21 +23,22 @@
         <!-- EDIT-TEXTAREA -->
 
         <div class="well">
-            <!--<h5>开始写作</h5>-->
+            <!--method="post" action="<?php echo U('Admin/Insert/insert'); ?>"-->
             <form>
+                <!--<h5>开始写作</h5>-->
                 <div>文章标题(必需)</div>
                 <div class="form-group">
-                    <input class="form-control" name="title" type="text" placeholder="来个炫酷的标题吧 :-)"/>
+                    <input class="form-control" id="title" type="text" placeholder="来个炫酷的标题吧 :-)"/>
                 </div>
 
                 <div>文章分类(必需)</div>
                 <div class="form-group">
-                    <input class="form-control" name="category" type="text" placeholder="给文章分个类吧"/>
+                    <input class="form-control" id="category_id" type="text" placeholder="给文章分个类吧"/>
                 </div>
 
                 <div>文章标签(必需)</div>
                 <div class="form-group">
-                    <input class="form-control" name="tag" type="text" placeholder="文章标签"/>
+                    <input class="form-control" id="tag" type="text" placeholder="文章标签"/>
                 </div>
 
                 <div style="margin-bottom: 15px;">
@@ -53,7 +54,7 @@
 
 
                 <div>简要描述(必需)</div>
-                <textarea title="abstract" class="form-control" rows="3"
+                <textarea id="summary" title="abstract" class="form-control" rows="3"
                           placeholder="一段文字，简要介绍文章内容，不会出现在文章正文" style="margin-bottom: 20px;"></textarea>
 
                 <!--SUMMERNOTE START-->
@@ -62,7 +63,7 @@
                 <!--SUMMERNOTE END-->
 
                 <hr/>
-                <button type="submit" class="btn btn-danger btn-lg btn-block">
+                <button id="send" class="btn btn-danger btn-lg btn-block">
                     点击录入文章
                 </button>
             </form>
@@ -86,7 +87,56 @@
         //设置占位符
         var markupStr = '点击右上角可以全屏编辑哦';
         $('#summernote').summernote('code', markupStr);
+
+        $('#send').click(function () {
+            var title = $('#title').val();
+            var categoryId = $('#category_id').val();
+            var tag = $('#tag').val();
+            var summary = $('#summary').val();
+            var articleContent = $('#summernote').summernote('code');
+
+            $.ajax({
+                type: 'POST',
+                data: {
+                    title: title,
+                    category_id: categoryId,
+                    tag: tag,
+                    summary: summary,
+                    content: articleContent
+                },
+                url: '<?php echo U("Admin/Insert/insert"); ?>',
+                dataType: 'json',
+
+                success: function (result) {
+//                    CloseWebPage();
+                    if (result.success) {
+//                        window.location.href = '<?php echo U("Admin/Insert/insert"); ?>';
+                        CloseWebPage();
+                    }
+                }
+            }).done();
+        });
     });
+
+    //关闭当前窗口
+    function CloseWebPage() {
+        if (navigator.userAgent.indexOf("MSIE") > 0) {
+            if (navigator.userAgent.indexOf("MSIE 6.0") > 0) {
+                window.opener = null;
+                window.close();
+            } else {
+                window.open('', '_top');
+                window.top.close();
+            }
+        }
+        else if (navigator.userAgent.indexOf("Firefox") > 0) {
+            window.location.href = 'about:blank ';
+        } else {
+            window.opener = null;
+            window.open('', '_self', '');
+            window.close();
+        }
+    }
 </script>
 
 </body>

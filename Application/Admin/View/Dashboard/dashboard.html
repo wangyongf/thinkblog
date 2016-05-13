@@ -294,11 +294,17 @@
 <!--<![endif]-->
 <script src="__PUBLIC__/Dashboard/assets/js/app.js"></script>
 <script type="text/javascript">
+    $('#writing-method').on('open.modal.amui', function () {
+        console.log('第一个演示弹窗打开了');
+    });
+
     $('#editor').on('click', function () {
         console.log('editor clicked');
+        $('#writing-method').modal('close');
     });
     $('#markdown').on('click', function () {
         console.log('markdown clicked');
+        $('#writing-method').modal('close');
     });
 </script>
 
