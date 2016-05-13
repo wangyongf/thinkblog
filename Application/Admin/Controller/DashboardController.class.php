@@ -37,7 +37,7 @@ class DashboardController extends Controller
     }
 
     /**
-     * 不支持ie
+     * 显示不支持ie
      */
     public function tipAction()
     {
