@@ -1,6 +1,5 @@
 # ThinkBlog
-ThinkBlog -- the 3S(Simple, Swift, Super) blog
+ThinkBlog -- A Simple & Swift Blog Framework.
 
 # ThinkBlog V0.1 released!
-Fully markdown support.
-# ThinkBlog
+both markdown and traditional editing support.
