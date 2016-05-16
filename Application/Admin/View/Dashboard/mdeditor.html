@@ -2,16 +2,19 @@
 <html>
 
 <head>
-    <meta charset='utf-8'/>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1"/>
-    <meta name="description" content="Markdown编辑器"/>
+    <meta charset='UTF-8'/>
+    <title>Markdown编辑器</title>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="__PUBLIC__/markdown/css/style.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="__PUBLIC__/markdown/css/bootstrap-markdown.min.css">
     <link href="//cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="//cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/bootstrap-markdown/2.10.0/css/bootstrap-markdown.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="__PUBLIC__/markdown/css/style.css">
 
-    <title>Markdown编辑器</title>
+    <style type="text/css">
+        #main_content_wrap {
+            background-image: url("__PUBLIC__/Img/earth.jpg");
+        }
+    </style>
 </head>
 
 <body>
@@ -24,29 +27,160 @@
         <!-- MARKUP-TEXTAREA -->
 
         <div class="well">
-            <h5>开始写作</h5>
+            <!--<h5>开始写作</h5>-->
             <form>
+                <div>文章标题(必需)</div>
                 <div class="form-group">
-                    <input class="form-control" name="title" type="text" placeholder="来个炫酷的标题吧 :-)"/>
+                    <input class="form-control" id="title" type="text" placeholder="来个炫酷的标题吧 :-)"/>
                 </div>
-                <textarea name="content" id="content" data-provide="markdown" rows="15" title="开始写作"></textarea>
+
+                <div>文章分类(必需)</div>
+                <div class="form-group">
+                    <input class="form-control" id="category_id" type="text" placeholder="给文章分个类吧"/>
+                </div>
+
+                <div>文章标签(必需)</div>
+                <div class="form-group">
+                    <input class="form-control" id="tag" type="text" placeholder="文章标签"/>
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <label class="checkbox-inline">
+                        <input type="radio" name="optionsRadiosinline" id="optionsRadios3"
+                               value="option1" checked> 原创
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="radio" name="optionsRadiosinline" id="optionsRadios4"
+                               value="option2"> 转载
+                    </label>
+                </div>
+
+
+                <div>简要描述(必需)</div>
+                <textarea id="summary" title="abstract" class="form-control" rows="3"
+                          placeholder="一段文字，简要介绍文章内容，不会出现在文章正文" style="margin-bottom: 20px;"></textarea>
+
+                <!--MARKDOWN START-->
+                <div>文章内容(必需)</div>
+                <textarea name="content" id="content" data-provide="markdown" rows="15" title="开始写作">
+                </textarea>
+                <!--MARKDOWN END-->
+
                 <hr/>
-                <button type="submit" class="btn">发布</button>
+                <span id="send" class="btn btn-danger btn-lg btn-block">
+                    点击录入文章
+                </span>
             </form>
         </div>
 
     </section>
 </div>
 
+<script src="//cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<script src="__PUBLIC__/Js/jquery.min.js"></script>
-<script src="__PUBLIC__/markdown/js/markdown.js"></script>
-<script src="__PUBLIC__/markdown/js/bootstrap-markdown.js"></script>
+<script src="//cdn.bootcss.com/markdown.js/0.4.0/markdown.min.js"></script>
+<script src="//cdn.bootcss.com/to-markdown/3.0.0/to-markdown.js"></script>
+<script src="//cdn.bootcss.com/bootstrap-markdown/2.10.0/js/bootstrap-markdown.min.js"></script>
 <script src="__PUBLIC__/markdown/js/jquery.hotkeys.js"></script>
 <script src="__PUBLIC__/markdown/js/main.js"></script>
 <script src="__PUBLIC__/markdown/js/bootstrap-markdown.zh.js"></script>
 <script type="text/javascript">
-    document.getElementById("content").innerText = "### 你好世界";
+    articleContent = "";
+
+    $("#content").markdown({
+        savable: true,
+        onBlur: function (e) {
+            articleContent = e.parseContent();
+        }
+//        onShow: function (e) {
+//            alert("Showing "
+//                    + e.$textarea.prop("tagName").toLowerCase()
+//                    + "#"
+//                    + e.$textarea.attr("id")
+//                    + " as Markdown Editor...")
+//        },
+//        onPreview: function (e) {
+//            var previewContent
+//
+//            if (e.isDirty()) {
+//                var originalContent = e.getContent()
+//
+//                previewContent = "Prepended text here..."
+//                        + "\n"
+//                        + originalContent
+//                        + "\n"
+//                        + "Apended text here..."
+//            } else {
+//                previewContent = "Default content"
+//            }
+//
+//            return previewContent
+//        },
+//        onSave: function (e) {
+//            alert("Saving '" + e.getContent() + "'...")
+//        },
+//        onChange: function (e) {
+//            console.log("Changed!")
+//        },
+//        onFocus: function (e) {
+//            alert("Focus triggered!")
+//        },
+//        onBlur: function (e) {
+//            alert("Blur triggered!")
+//        }
+    });
+
+    $(document).ready(function () {
+        document.getElementById("content").innerText = "### 点击右上角可以全屏编辑哦\n### 点击save保存为草稿";
+
+        $('#send').click(function () {
+            var title = $('#title').val();
+            var categoryId = $('#category_id').val();
+            var tag = $('#tag').val();
+            var summary = $('#summary').val();
+
+//            alert(articleContent);
+
+            $.ajax({
+                type: 'POST',
+                data: {
+                    title: title,
+                    category_id: categoryId,
+                    tag: tag,
+                    summary: summary,
+                    content: articleContent
+                },
+                url: '<?php echo U("Admin/Insert/insert"); ?>',
+                dataType: 'json',
+
+                success: function (result) {
+                    if (result.success) {
+                        CloseWebPage();
+                    }
+                }
+            }).done();
+        });
+    });
+
+    //关闭当前窗口
+    function CloseWebPage() {
+        if (navigator.userAgent.indexOf("MSIE") > 0) {
+            if (navigator.userAgent.indexOf("MSIE 6.0") > 0) {
+                window.opener = null;
+                window.close();
+            } else {
+                window.open('', '_top');
+                window.top.close();
+            }
+        }
+        else if (navigator.userAgent.indexOf("Firefox") > 0) {
+            window.location.href = 'about:blank ';
+        } else {
+            window.opener = null;
+            window.open('', '_self', '');
+            window.close();
+        }
+    }
 </script>
 
 </body>
