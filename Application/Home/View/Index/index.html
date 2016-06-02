@@ -42,48 +42,50 @@
 
             <main class="col-md-8 main-content">
 
-                <article class="post tag-lumen tag-xin-ban-ben-fa-bu">
-                    <volist name="articles" id="article">
-                    <div class="post-head">
-                        <h1 class="post-title"><a href="{$article.title_url}" target="_blank">{$article.title}</a></h1>
-                        <div class="post-meta">
-                            <time class="post-date" datetime="{$article.pub_time}" title="{$article.pub_time}"> &bull;
-                                发表于{$article.pub_time}
-                            </time>
-                            <span class="author">作者：<a href="javascript:">Scott Wang</a></span>
-                            <time class="edit-date" datetime="{$article.edit_time}" title="{$article.edit_time}">
-                                更新于{$article.edit_time} &bull;
-                            </time>
+                <volist name="articles" id="article">
+                    <article class="post tag-lumen tag-xin-ban-ben-fa-bu">
+                        <div class="post-head">
+                            <h1 class="post-title"><a href="{$article.title_url}" target="_blank">{$article.title}</a>
+                            </h1>
+                            <div class="post-meta">
+                                <time class="post-date" datetime="{$article.pub_time}"
+                                      title="{$article.pub_time}"> &bull;
+                                    发表于{$article.pub_time}
+                                </time>
+                                <span class="author">作者：<a href="javascript:">Scott Wang</a></span>
+                                <time class="edit-date" datetime="{$article.edit_time}" title="{$article.edit_time}">
+                                    更新于{$article.edit_time} &bull;
+                                </time>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="featured-media">
-                        <a href="javascript:void(0)"><img
-                                src="__PUBLIC__/Img/article6.jpg"
-                                alt="{$article.title}"></a>
-                    </div>
-
-                    <div class="post-content" id="post-content">
-                        <p>{$article.summary}</p>
-                    </div>
-                    <div class="post-permalink">
-                        <a href="javascript:" class="btn btn-default">阅读全文</a>
-                    </div>
-
-                    <footer class="post-footer clearfix">
-                        <div class="pull-left tag-list">
-                            <i class="fa fa-folder-open-o"></i>
-                            <a href="javascript:">ThinkBlog</a>, <a href="javascript:">新版本发布</a>
+                        <div class="featured-media">
+                            <a href="javascript:void(0)"><img
+                                    src="__PUBLIC__/Img/article6.jpg"
+                                    alt="{$article.title}"></a>
                         </div>
-                        <div class="pull-right share">
-                            <i class="fa fa-eye fa-2x"></i>
-                            <a href="javascript:void (0)"> 10W+ </a> &nbsp;&nbsp;&nbsp;
-                            <i class="fa fa-comments fa-2x"></i>
-                            <a href="javascript:void (0)"> 10W+ </a>
+
+                        <div class="post-content" id="post-content">
+                            <p>{$article.summary}</p>
                         </div>
-                    </footer>
-                    </volist>
-                </article>
+                        <div class="post-permalink">
+                            <a href="{$article.title_url}" target="_blank" class="btn btn-default">阅读全文</a>
+                        </div>
+
+                        <footer class="post-footer clearfix">
+                            <div class="pull-left tag-list">
+                                <i class="fa fa-folder-open-o"></i>
+                                <a href="javascript:">ThinkBlog</a>, <a href="javascript:">新版本发布</a>
+                            </div>
+                            <div class="pull-right share">
+                                <i class="fa fa-eye fa-2x"></i>
+                                <a href="javascript:void (0)"> 10W+ </a> &nbsp;&nbsp;&nbsp;
+                                <i class="fa fa-comments fa-2x"></i>
+                                <a href="javascript:void (0)"> 10W+ </a>
+                            </div>
+                        </footer>
+                    </article>
+                </volist>
 
                 <nav class="pagination" role="navigation">
                     <span class="page-number">第 1 页 &frasl; 共 5 页</span>

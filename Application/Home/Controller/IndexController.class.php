@@ -22,7 +22,7 @@ class IndexController extends Controller
 
         $ids = $Article->getField('id', TRUE);
 
-        for ($idx = 0; $idx < count($ids); $idx++)
+        for ($idx = count($ids) - 1; $idx >= 0; $idx--)
         {
             $id = $ids[$idx];
             $singleArticle['id'] = $id;
@@ -36,7 +36,7 @@ class IndexController extends Controller
 
             $singleArticle['title_url'] = U('Home/Post/post?post_id=' . $id);
 
-            $articles['id'] = $singleArticle;
+            $articles[$id] = $singleArticle;
         }
 
         if (! empty($articles))

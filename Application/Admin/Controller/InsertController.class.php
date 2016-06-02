@@ -23,7 +23,7 @@ class InsertController extends Controller
     /**
      * 插入数据
      */
-    public function _insertData()
+    private function _insertData()
     {
         $time = time();
 
