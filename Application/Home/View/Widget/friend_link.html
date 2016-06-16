@@ -1,8 +1,11 @@
 <div class="widget">
     <h4 class="title">友情链接</h4>
     <div class="content links">
-        <p><a href="http://blog.54yongf.com" title="Scott Wang的个人博客" target="_blank">Scott Wang的个人博客</a>
-        </p>
-        <p><a href="http://www.thinkblog.org" title="ThinkBlog中文网" target="_blank">ThinkBlog中文网</a></p>
+        <!--<p><a href="http://blog.54yongf.com" title="Scott Wang的个人博客" target="_blank">Scott Wang的个人博客</a>-->
+        <!--</p>-->
+        <!--<p><a href="http://www.thinkblog.org" title="ThinkBlog中文网" target="_blank">ThinkBlog中文网</a></p>-->
+        <volist name="links" id="link">
+            <p><a href="{$link.url}" title="{$link.description}" target="_blank">{$link.name}</a></p>
+        </volist>
     </div>
 </div>

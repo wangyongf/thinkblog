@@ -17,6 +17,10 @@ class PostController extends Controller
         $post_id = I('post_id');
         $data = $this->getArticleInfo($post_id);
         $this->assign($data);
+
+        $links = $this->getFriendLink();
+        $this->assign('links', $links);
+
         $this->display('Index/post');
     }
 
@@ -36,5 +40,29 @@ class PostController extends Controller
         $data['edit_time'] = date("Y-m-d", $Article->where('id=' . $id)->getField('EDIT_TIME'));
 
         return $data;
+    }
+
+    /**
+     * 获取友情链接
+     */
+    private function getFriendLink()
+    {
+        $Link = M('Link_group');        //初始化Link_group
+
+        $ids = $Link->getField('id', TRUE);
+
+        $links = null;
+        for ($idx = 0; $idx < count($ids); $idx++)
+        {
+            $id = $ids[$idx];
+            $singleLink['id'] = $id;
+            $singleLink['name'] = $Link->where('id=' . $id)->getField('NAME');
+            $singleLink['description'] = $Link->where('id=' . $id)->getField('DESCRIPTION');
+            $singleLink['url'] = $Link->where('id=' . $id)->getField('URL');
+
+            $links[$id] = $singleLink;
+        }
+
+        return $links;
     }
 }

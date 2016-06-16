@@ -37,7 +37,7 @@ return array(
     'URL_ROUTER_ON' => TRUE,
 
     //URL模式 REWRITE
-    'URL_MODEL' => '2',
+    'URL_MODEL' => 2,
 
     //模板替换规则
     'TMPL_PARSE_STRING' => array(),

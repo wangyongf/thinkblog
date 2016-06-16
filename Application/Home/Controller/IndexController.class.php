@@ -10,6 +10,10 @@ class IndexController extends Controller
     {
         $articles = $this->getArticleInfo();
         $this->assign('articles', $articles);
+
+        $links = $this->getFriendLink();
+        $this->assign('links', $links);
+
         $this->display();
     }
 
@@ -22,6 +26,7 @@ class IndexController extends Controller
 
         $ids = $Article->getField('id', TRUE);
 
+        $articles = null;
         for ($idx = count($ids) - 1; $idx >= 0; $idx--)
         {
             $id = $ids[$idx];
@@ -39,10 +44,31 @@ class IndexController extends Controller
             $articles[$id] = $singleArticle;
         }
 
-        if (! empty($articles))
+        return $articles;
+    }
+
+    /**
+     * 获取友情链接
+     */
+    private function getFriendLink()
+    {
+        $Link = M('Link_group');        //初始化Link_group
+
+        $ids = $Link->getField('id', TRUE);
+
+        $links = null;
+        for ($idx = 0; $idx < count($ids); $idx++)
         {
-            return $articles;
+            $id = $ids[$idx];
+            $singleLink['id'] = $id;
+            $singleLink['name'] = $Link->where('id=' . $id)->getField('NAME');
+            $singleLink['description'] = $Link->where('id=' . $id)->getField('DESCRIPTION');
+            $singleLink['url'] = $Link->where('id=' . $id)->getField('URL');
+
+            $links[$id] = $singleLink;
         }
+
+        return $links;
     }
 
     public function insertAction()

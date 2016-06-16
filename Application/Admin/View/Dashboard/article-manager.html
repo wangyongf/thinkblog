@@ -1,0 +1,190 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ThinkBlog后台管理系统首页 - Dashboard</title>
+    <meta name="description" content="ThinkBlog后台管理">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <!--禁止搜索引擎转码-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <!--禁止搜索引擎缓存-->
+    <meta name="robots" content="noarchive">
+
+    <!--网站的图标-->
+    <link rel="shortcut icon" href="__PUBLIC__/favicon.ico">
+
+    <link rel="apple-touch-icon-precomposed" href="__PUBLIC__/Dashboard/assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="ThinkBlog"/>
+
+    <link rel="stylesheet" href="__PUBLIC__/Dashboard/assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/Dashboard/assets/css/dashboard.css">
+    <link rel="stylesheet" href="__PUBLIC__/Dashboard/assets/css/app.css">
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，ThinkBlog 暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+    以获得更好的体验！</p>
+<![endif]-->
+
+<!--header start-->
+<include file="Public/header"/>
+<!--header end-->
+
+<div class="am-cf admin-main">
+
+    <!-- sidebar start -->
+    <include file="Public/sidebar"/>
+    <!-- sidebar end -->
+
+    <!-- content start -->
+    <div class="admin-content">
+
+        <div class="am-cf am-padding">
+            <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">文章管理</strong> /
+                <small>Articles</small>
+            </div>
+        </div>
+
+        <div class="am-g">
+            <div class="am-u-md-6 am-cf">
+                <div class="am-fl am-cf">
+                    <div class="am-btn-toolbar am-fl">
+                        <div class="am-btn-group am-btn-group-xs">
+                            <button type="button" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增
+                            </button>
+                            <button type="button" class="am-btn am-btn-default"><span class="am-icon-save"></span> 保存
+                            </button>
+                            <!--<button type="button" class="am-btn am-btn-default"><span class="am-icon-archive"></span> 审核-->
+                            <!--</button>-->
+                            <button type="button" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除
+                            </button>
+                        </div>
+
+                        <div class="am-form-group am-margin-left am-fl">
+                            <select>
+                                <option value="option1">所有分类</option>
+                                <option value="option2">类别1</option>
+                                <option value="option3">类别2</option>
+                                <option value="option3">类别3</option>
+                                <option value="option3">类别4</option>
+                                <option value="option3">类别5</option>
+                                <option value="option3">类别6</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="am-u-md-3 am-cf">
+                <div class="am-fr">
+                    <div class="am-input-group am-input-group-sm">
+                        <input type="text" class="am-form-field">
+                <span class="am-input-group-btn">
+                  <button class="am-btn am-btn-default" type="button">搜索</button>
+                </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="am-g">
+            <div class="am-u-sm-12">
+                <form class="am-form">
+                    <table class="am-table am-table-striped am-table-hover table-main">
+                        <thead>
+                        <tr>
+                            <th class="table-check"><input type="checkbox"/></th>
+                            <th class="table-id">ID</th>
+                            <th class="table-title">标题</th>
+                            <th class="table-type">类别</th>
+                            <th class="table-author">作者</th>
+                            <th class="table-date">修改日期</th>
+                            <th class="table-set">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <volist name="articleInfo" id="article">
+                            <tr>
+                                <td><input type="checkbox"/></td>
+                                <td>{$article.id}</td>
+                                <td><a href="{$article.title_url}" target="_blank">{$article.title}</a></td>
+                                <td>{$article.original}</td>
+                                <td>{$article.author}</td>
+                                <td>{$article.edit_time}</td>
+                                <td>
+                                    <div class="am-btn-toolbar">
+                                        <div class="am-btn-group am-btn-group-xs">
+                                            <button class="am-btn am-btn-default am-btn-xs am-text-secondary"
+                                                    onclick="window.open('{$article.edit_url}')"><span
+                                                    class="am-icon-pencil-square-o"></span> 编辑
+                                            </button>
+                                            <button class="am-btn am-btn-default am-btn-xs"
+                                                    onclick="window.open('{$article.title_url}')"><span
+                                                    class="am-icon-copy"></span> 浏览
+                                            </button>
+                                            <button class="am-btn am-btn-default am-btn-xs am-text-danger"><span
+                                                    class="am-icon-trash-o"></span> <a href="#">删除</a>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </volist>
+
+                        </tbody>
+                    </table>
+                    <div class="am-cf">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;共 {$articleCount} 篇文章
+                        <div class="am-fr" hidden>
+                            <ul class="am-pagination">
+                                <li class="am-disabled"><a href="#">«</a></li>
+                                <li class="am-active"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li><a href="#">»</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <hr/>
+                    <p>注：.....</p>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <!-- content end -->
+</div>
+
+<!--footer start-->
+<include file="Public/footer"/>
+<!--footer end-->
+
+<!--[if lt IE 9]>
+<script src="__PUBLIC__/Assets/Global/Plugins/jquery1.11.1.min.js"></script>
+<script src="__PUBLIC__/Dashboard/assets/js/modernizr.js"></script>
+<script src="__PUBLIC__/Dashboard/assets/js/polyfill/rem.min.js"></script>
+<script src="__PUBLIC__/Dashboard/assets/js/polyfill/respond.min.js"></script>
+<script src="__PUBLIC__/Dashboard/assets/js/amazeui.legacy.min.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="__PUBLIC__/Assets/Global/Plugins/jquery.min.js"></script>
+<script src="__PUBLIC__/Dashboard/assets/js/amazeui.min.js"></script>
+<!--<![endif]-->
+<script src="__PUBLIC__/Dashboard/assets/js/app.js"></script>
+<script type="text/javascript">
+    $('#editor').on('click', function () {
+        console.log('editor clicked');
+    });
+    $('#markdown').on('click', function () {
+        console.log('markdown clicked');
+    })
+</script>
+
+</body>
+</html>
