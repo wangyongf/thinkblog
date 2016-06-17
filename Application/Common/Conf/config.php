@@ -41,4 +41,8 @@ return array(
 
     //模板替换规则
     'TMPL_PARSE_STRING' => array(),
+
+    //404错误页面
+//    'ERROR_PAGE' =>'/Public/error.html'
+    'ERROR_PAGE'            =>  'http://121.42.59.52/error/index.html',	// 错误定向页面
 );

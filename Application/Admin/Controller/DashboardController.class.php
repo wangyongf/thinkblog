@@ -70,18 +70,21 @@ class DashboardController extends Controller
     /**
      * 从数据库中获取文章的信息
      *
+     * @param $nolimit     true: 不限制
+     *
+     * @return null
      */
-    private function getArticleInfo($limit)
+    private function getArticleInfo($nolimit)
     {
         $Article = M('Article');        //实例化Article对象
 
-        if ($limit)
+        if ($nolimit)
         {
-            $ids = $Article->getField('id', 5);
+            $ids = $Article->getField('id', TRUE);
         }
         else
         {
-            $ids = $Article->getField('id', TRUE);
+            $ids = $Article->getField('id', 5);
         }
 
         $articles = null;
@@ -196,14 +199,24 @@ class DashboardController extends Controller
             {
                 $Article = M('Article');
 
+                $article['id'] = $articleId;
                 $article['title'] = $Article->where('id=' . $articleId)->getField('TITLE');
                 $article['category'] = $Article->where('id=' . $articleId)->getField('CATEGORY_ID');
                 $article['tag'] = $Article->where('id=' . $articleId)->getField('TAGS');
                 $article['type'] = $Article->where('id=' . $articleId)->getField('ORIGINAL');
+//                $article['type'] = 1;
                 $article['summary'] = $Article->where('id=' . $articleId)->getField('SUMMARY');
-                $article['content'] = $Article->where('id=' . $articleId)->getField('CONTENT');
+                $article['content'] = htmlspecialchars_decode($Article->where('id=' . $articleId)->getField('CONTENT'));
+                //这里要注意将换行替换成<br/>！！！不然有问题！
+                $article['content'] = str_replace("\n", "<br/>", $article['content']);
 
                 $this->assign('article', $article);
+
+                $this->assign('type', 1);
+            }
+            else
+            {
+                $this->assign('type', 0);
             }
 
             $this->display();

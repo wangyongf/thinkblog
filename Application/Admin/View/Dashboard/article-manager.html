@@ -125,7 +125,8 @@
                                                     onclick="window.open('{$article.title_url}')"><span
                                                     class="am-icon-copy"></span> 浏览
                                             </button>
-                                            <button class="am-btn am-btn-default am-btn-xs am-text-danger"><span
+                                            <button class="am-btn am-btn-default am-btn-xs am-text-danger"
+                                                    onclick="showWarning({$article.id})"><span
                                                     class="am-icon-trash-o"></span> <a href="#">删除</a>
                                             </button>
                                         </div>
@@ -136,6 +137,20 @@
 
                         </tbody>
                     </table>
+
+                    <div class="am-modal am-modal-confirm" tabindex="-1" id="my-confirm">
+                        <div class="am-modal-dialog">
+                            <div class="am-modal-hd">警告！</div>
+                            <div class="am-modal-bd">
+                                你，确定要删除这篇文章吗？
+                            </div>
+                            <div class="am-modal-footer">
+                                <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+                                <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="am-cf">
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;共 {$articleCount} 篇文章
                         <div class="am-fr" hidden>
@@ -184,6 +199,40 @@
     $('#markdown').on('click', function () {
         console.log('markdown clicked');
     })
+
+    /**
+     * 删除文章的警告
+     */
+    function showWarning(id) {
+        $('#my-confirm').modal({
+            relatedTarget: this,
+            onConfirm: function(options) {
+
+                $.ajax({
+                    type: 'POST',
+                    data: {
+                        id: id
+                    },
+                    url: '<?php echo U("Admin/Insert/del"); ?>',
+                    dataType: 'json',
+
+                    success: function (result) {
+                        if (result.success) {
+                            alert("删除成功");
+                            window.location.reload();
+                        } else {
+                            alert("删除失败，请稍后重试");
+                        }
+                    }
+                }).done();
+
+            },
+            // closeOnConfirm: false,
+            onCancel: function() {
+//                alert('算求，不弄了' + id);
+            }
+        });
+    }
 </script>
 
 </body>

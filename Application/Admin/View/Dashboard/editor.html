@@ -28,34 +28,38 @@
                 <!--<h5>开始写作</h5>-->
                 <div>文章标题(必需)</div>
                 <div class="form-group">
-                    <input class="form-control" id="title" type="text" placeholder="来个炫酷的标题吧 :-)"/>
+                    <input class="form-control" id="title" type="text" value="{$article.title}" placeholder="来个炫酷的标题吧 :-)"/>
                 </div>
 
                 <div>文章分类(必需)</div>
                 <div class="form-group">
-                    <input class="form-control" id="category_id" type="text" placeholder="给文章分个类吧"/>
+                    <input class="form-control" id="category_id" type="text" value="{$article.category}" placeholder="给文章分个类吧"/>
                 </div>
 
                 <div>文章标签(必需)</div>
                 <div class="form-group">
-                    <input class="form-control" id="tag" type="text" placeholder="文章标签"/>
+                    <input class="form-control" id="tag" type="text" value="{$article.tag}" placeholder="文章标签"/>
                 </div>
 
                 <div style="margin-bottom: 15px;">
                     <label class="checkbox-inline">
                         <input type="radio" name="optionsRadiosinline" id="optionsRadios3"
-                               value="option1" checked> 原创
+                               value="option1"
+                        <if condition="$article.type eq 0 ">checked</if>
+                        > 原创
                     </label>
                     <label class="checkbox-inline">
                         <input type="radio" name="optionsRadiosinline" id="optionsRadios4"
-                               value="option2"> 转载
+                               value="option2"
+                        <if condition="$article.type eq 1 ">checked</if>
+                        > 转载
                     </label>
                 </div>
 
 
                 <div>简要描述(必需)</div>
                 <textarea id="summary" title="abstract" class="form-control" rows="3"
-                          placeholder="一段文字，简要介绍文章内容，不会出现在文章正文" style="margin-bottom: 20px;"></textarea>
+                          placeholder="一段文字，简要介绍文章内容，不会出现在文章正文" style="margin-bottom: 20px;">{$article.summary}</textarea>
 
                 <!--SUMMERNOTE START-->
                 <div>文章内容(必需)</div>
@@ -85,7 +89,14 @@
         });
 
         //设置占位符
-        var markupStr = '点击右上角可以全屏编辑哦';
+//        var markupStr = '点击右上角可以全屏编辑哦';
+//        var markupStr = '<?php echo "Hello, world!"; ?>';
+//        var markupStr = '{$example}';
+        <empty name="article.content">
+            var markupStr = '点击右上角可以全屏编辑哦';
+            <else />
+            var markupStr = "{$article.content}";
+        </empty>
         $('#summernote').summernote('code', markupStr);
 
         $('#send').click(function () {
@@ -102,7 +113,14 @@
                     category_id: categoryId,
                     tag: tag,
                     summary: summary,
-                    content: articleContent
+                    content: articleContent,
+                    //操作类型：
+                    // 0: 新增文章
+                    // 1: 更新文章
+                    type: {$type},
+                    <notempty name="article.id">
+                        id: {$article.id}
+                    </notempty>
                 },
                 url: '<?php echo U("Admin/Insert/insert"); ?>',
                 dataType: 'json',
@@ -111,6 +129,7 @@
 //                    CloseWebPage();
                     if (result.success) {
 //                        window.location.href = '<?php echo U("Admin/Insert/insert"); ?>';
+                        alert("更新成功");
                         CloseWebPage();
                     }
                 }
